@@ -1,4 +1,4 @@
-#define practice14
+#define practice15
 
 
 #ifdef program01
@@ -311,6 +311,19 @@ int main(void) {
 		printf("\x1b[91m%4d  \x1b[0m|", totaly);
 	}
 	printf("\n");
+	return 0;
+}
+#endif
+
+#ifdef practice15
+#include <stdio.h>
+int main(void) {
+	char text[21];
+	int i;
+	printf("Enter the any text...\n");
+	get(text); // scanf_s("%s",&text ,sizeof(text); ‚Ì‘ã‘Ö
+	for (i = 0; text[i] != '\0'; i++);
+	printf("Entered the text: %s\nEntered the text length: %d", text, i);
 	return 0;
 }
 #endif
