@@ -321,7 +321,7 @@ int main(void) {
 	char text[21];
 	int i;
 	printf("Enter the any text...\n");
-	gets(text); // scanf_s("%s",&text ,sizeof(text); ‚Ì‘ã‘Ö
+	gets(text); // scanf_s("%s",&text ,sizeof(text);
 	for (i = 0; text[i] != '\0'; i++);
 	printf("Entered the text: %s\nEntered the text length: %d", text, i);
 	return 0;
