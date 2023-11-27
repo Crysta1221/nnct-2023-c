@@ -1,4 +1,4 @@
-#define practice15
+#define practice16
 
 
 #ifdef program01
@@ -324,6 +324,76 @@ int main(void) {
 	gets(text); // scanf_s("%s",&text ,sizeof(text);
 	for (i = 0; text[i] != '\0'; i++);
 	printf("Entered the text: %s\nEntered the text length: %d", text, i);
+	return 0;
+}
+#endif
+
+#ifdef try151
+#include <stdio.h>
+int main(void) {
+	char text1[65],text2[65];
+	int i;
+	printf("Enter the any text...\n");
+	gets(text1);
+	printf("text1: %s\n", text1);
+	for (i = 0; text1[i] != '\0'; i++) {
+		text2[i] = text1[i];
+	}
+	text2[i] = text1[i];
+	printf("text2: %s", text2);
+}
+
+#endif
+
+#ifdef try152
+#include <stdio.h>
+int main(void) {
+	char text1[65], text2[65];
+	int i,j;
+	printf("Enter the First name...\n");
+	gets(text1);
+	printf("Enter the Last name...\n");
+	gets(text2);
+	for (i = 0; text1[i] != '\0'; i++);
+	for (j = 0; text2[j] != '\0'; j++) {
+		text1[i] = text2[j];
+		i++;
+	}
+	text1[i] = text2[j];
+	printf("Full name: %s", text1);
+
+}
+#endif
+
+#ifdef practice16
+#include <stdio.h>
+
+void school_num(int num) {
+	printf("School Number: %d", num);
+	return;
+}
+
+void school_name(char name[]) {
+	printf("School Name: %s", name);
+	return;
+}
+
+void personal(int num, char name[]) {
+	school_num(num);
+	printf("\n");
+	school_name(name);
+	return;
+}
+
+int main(void) {
+	int num;
+	char name[65];
+	printf("Enter the your school number...\n");
+	scanf_s("%d", &num);
+	while (getchar() != '\n');
+	printf("Enter the your school name...\n");
+	fgets(name, sizeof(name), stdin);
+	personal(num, name);
 	return 0;
 }
 #endif
