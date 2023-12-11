@@ -1,5 +1,4 @@
-#define practice16
-
+#define practice17
 
 #ifdef program01
 
@@ -395,5 +394,28 @@ int main(void) {
 	fgets(name, sizeof(name), stdin);
 	personal(num, name);
 	return 0;
+}
+#endif
+
+#ifdef practice17
+#include <stdio.h>
+int division (int a, int b) {
+	int div;
+	div = a / b;
+	return(div);
+}
+int multi(int a, int b) {
+	int multi;
+	multi = a * b;
+	return(multi);
+}
+
+int main(void) {
+	int a, b, d, m;
+	printf("Enter the 2 number...\n");
+	scanf_s("%d %d", &a, &b);
+	d = division(a, b);
+	m = multi(a, b);
+	printf("Division: %d, Multi: %d", d, m);
 }
 #endif
