@@ -1,4 +1,4 @@
-#define practice17
+#define try16
 
 #ifdef program01
 
@@ -417,5 +417,64 @@ int main(void) {
 	d = division(a, b);
 	m = multi(a, b);
 	printf("Division: %d, Multi: %d", d, m);
+}
+#endif
+
+#ifdef try16
+#define _USE_MATH_DEFINES
+#include <stdio.h>
+#include <math.h>
+
+float circumference(float rad) {
+	float cir;
+	cir = 2 * 3.14 * rad;
+	return(cir);
+}
+
+int triangle(int base, int height) {
+	int tri;
+	tri = base * height / 2;
+	return(tri);
+}
+
+int factorial(int n) {
+	int i, fact = 1;
+	for (i = 1; i <= n; i++) {
+		fact = fact * i;
+	}
+	return(fact);
+}
+int main(void) {
+	printf("Select the Menu:\n1.Calculate circumference\n2.Calculate triangle's area\n3.Calculate n factorial\n> ");
+	int select, rad, base, height, case2, case3, n;
+	float case1;
+	scanf_s("%d", &select);
+	switch (select) {
+	default: 
+		printf("Error: Please enter the 1-3 number.");
+		break;
+	case 1:
+		printf("Calculate circumference\n");
+		printf("Enter the circle's radius...\n");
+		scanf_s("%d", &rad);
+		case1 = circumference(rad);
+		printf("Circumference: %lf",case1);
+		break;
+	case 2:
+		printf("Calculate triangle's area\n");
+		printf("Enter the triangle's base and height...\n");
+		scanf_s("%d %d", &base, &height);
+		case2 = triangle(base, height);
+		printf("Triangle's area: %d", case2);
+		break;
+	case 3:
+		printf("Calculate n factorial\n");
+		printf("Enter the n...\n");
+		scanf_s("%d", &n);
+		case3 = factorial(n);
+		printf("Factorial: %d", case3);
+		break;
+	}
+	return 0;
 }
 #endif
