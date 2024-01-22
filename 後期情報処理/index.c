@@ -1,4 +1,4 @@
-#define practice20
+#define practice21
 
 #ifdef program01
 
@@ -529,3 +529,92 @@ int main(void) {
 	return 0;
 }
 #endif
+
+#ifdef oasobi02
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_CHAR_SIZE 10
+#define RAND_MAX 1000
+
+int get_max(int data[]) {
+	int tmp = 0;
+	for (int i = 0; i < MAX_CHAR_SIZE; i++) {
+		if (data[i] > tmp) {
+			tmp = data[i];
+		}
+	}
+	return tmp;
+}
+
+void get_data(int data[]) {
+	printf("Setting %d number...\n", MAX_CHAR_SIZE);
+	srand((unsigned int)time(NULL));
+	for (int i = 0; i < MAX_CHAR_SIZE; i++) {	
+		printf("data[%d]: ", i);
+		data[i] = rand() % RAND_MAX;
+		printf("%d\n", data[i]);
+	}
+}
+
+int main(void) {
+
+	int data[MAX_CHAR_SIZE];
+	get_data(data);
+	int max = get_max(data);
+	printf("Max: %d", max);
+	return 0;
+}
+#endif
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define MAX_CHAR_SIZE 10
+#define RAND_MAX 1000
+
+int get_odd(int data[], int result[]) {
+	int* str1, * str2, n = 0;
+	str1 = data;
+	str2 = result;
+
+	int i;
+	for (i = 0; i < MAX_CHAR_SIZE; i++) {
+		if (*str1 % 2 != 0) {
+			*str2 = *str1;
+			str2++;
+			n++;
+		}
+		str1++;
+	}
+	return n;
+}
+
+void random(int n, int result[]) {
+	srand(time(NULL)); // —”¶¬Ší‚Ì‰Šú‰»
+
+	for (int i = 0; i < n; i++) {
+		result[i] = rand() % 100; // 0‚©‚ç99‚Ü‚Å‚Ìƒ‰ƒ“ƒ_ƒ€‚È”’l‚ð¶¬
+	}
+}
+
+void print_array(int arr[], int n) {
+	printf("Array[]:");
+	for (int i = 0; i < n; i++) {
+		printf("%d ",arr[i]);
+	}
+}
+
+int main(void) {
+	int data[MAX_CHAR_SIZE];
+	random(MAX_CHAR_SIZE, data);
+	print_array(data, MAX_CHAR_SIZE);
+	int result[MAX_CHAR_SIZE];
+	int n = get_odd(data, result);
+	printf("\n");
+	for (int i = 0; i < n; i++) {
+		printf("result[%d]: %d\n", i, result[i]);
+	}
+	printf("Total Amount: %d", n);
+	return 0;
+}
