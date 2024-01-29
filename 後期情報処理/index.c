@@ -1,4 +1,4 @@
-#define practice25
+#define practice24
 
 #ifdef program01
 
@@ -688,27 +688,31 @@ int main(void) {
 
 #ifdef practice24
 #include <stdio.h>
+#include <string.h>
 
-void text_bind(char* str1, char* str2) {
-	while (*str1 != '\0')
+void text_bind(char* str1, char* str2, char* str3) {
+	while (*str1 != '\0') {
+		*str3 = *str1;
 		str1++;
-	while (*str2 != '\0') {
-		*str1 = *str2;
-		str1++;
-		str2++;
+		str3++;
 	}
-	*str1 = '\0';
+	while (*str2 != '\0') {
+		*str3 = *str2;
+		str2++;
+		str3++;
+	}
+	*str3 = '\0';
 }
 
 int main(void) {
-	char text1[1024], text2[100];
+	char text1[100], text2[100], text3[1024];
 	printf("Enter the first word...\n");
 	scanf_s("%s", text1, sizeof(text1));
 	printf("Enter the second word...\n");
 	scanf_s("%s", text2, sizeof(text2));
 	printf("First: %s | Second: %s\n", text1, text2);
-	text_bind(text1, text2);
-	printf("Text binded: %s", text1);
+	text_bind(text1, text2, text3);
+	printf("Text binded: %s", text3);
 }
 #endif
 
