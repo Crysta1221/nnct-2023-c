@@ -1,4 +1,4 @@
-#define practice21
+#define practice25
 
 #ifdef program01
 
@@ -567,6 +567,8 @@ int main(void) {
 }
 #endif
 
+#ifdef practice21
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -618,3 +620,133 @@ int main(void) {
 	printf("Total Amount: %d", n);
 	return 0;
 }
+
+#endif
+
+// •¶š—ñ‚Ì’·‚³‚Æ•¶š—ñ‚ğ•\¦
+#ifdef practice221
+#include <stdio.h>
+#define MAX_CHAR_SIZE 20
+
+// •¶š—ñ‚Ì’·‚³‚ğ•Ô‚·
+int text_count(char* ptr) {
+	int count = 0;
+	while (*ptr != '\0') {
+		count++;
+		ptr++;
+	}
+	return count;
+}
+
+// •¶š—ñ‚ğ•\¦
+char* text_view(char* ptr) {
+	return ptr;
+}
+
+int main(void) {
+	char text[MAX_CHAR_SIZE];
+	printf("Enter the %d min text.\n", MAX_CHAR_SIZE);
+	scanf_s("%s", text, sizeof(text));
+	int count = text_count(text);
+	char* view = text_view(text);
+	printf("Count: %d\n", count);
+	printf("View: %s\n", view);
+	return 0;
+}
+#endif
+
+// w’è‚µ‚½•¶š‚ğŒŸõ
+#ifdef practice23
+#include <stdio.h>
+#include <string.h>
+#define MAX_CHAR_SIZE 20
+
+// •¶š—ñ‚ÆŒŸõ•¶š‚©‚çŒŸõ•¶š‚Ì”‚ğ•Ô‚·
+int text_search(char* ptr, char* search) {
+	int count = 0;
+	char* result = ptr;
+	while ((result = strstr(result, search)) != NULL) {
+		count++;
+		result++;
+	}
+	return count;
+}
+
+int main(void) {
+	char text[MAX_CHAR_SIZE];
+	char search[MAX_CHAR_SIZE];
+	printf("Enter the %d min text.\n", MAX_CHAR_SIZE);
+	scanf_s("%s", text, sizeof(text));
+	printf("Enter the Search word...\n");
+	scanf_s("%s", search, sizeof(search));
+	int count = text_search(text, search);
+	printf("Entered the text: %s\n", text);
+	printf("Search >> %s | %d words found.\n", search,count);
+	return 0;
+}
+#endif
+
+#ifdef practice24
+#include <stdio.h>
+
+void text_bind(char* str1, char* str2) {
+	while (*str1 != '\0')
+		str1++;
+	while (*str2 != '\0') {
+		*str1 = *str2;
+		str1++;
+		str2++;
+	}
+	*str1 = '\0';
+}
+
+int main(void) {
+	char text1[1024], text2[100];
+	printf("Enter the first word...\n");
+	scanf_s("%s", text1, sizeof(text1));
+	printf("Enter the second word...\n");
+	scanf_s("%s", text2, sizeof(text2));
+	printf("First: %s | Second: %s\n", text1, text2);
+	text_bind(text1, text2);
+	printf("Text binded: %s", text1);
+}
+#endif
+
+#ifdef practice25
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+	char names[5][50];
+	int lengths[5];
+	int max_length = 0; 
+	int max_index = 0;
+
+	for (int i = 0; i < 5; i++) {
+		printf("Enter the %d name: ", i + 1);
+		scanf_s("%s", names[i], sizeof(names[i]));
+	}
+
+	for (int i = 0; i < 5; i++) {
+		printf(" %d | %s\n", i + 1, names[i]);
+	}
+
+	for (int i = 0; i < 5; i++) {
+		lengths[i] = strlen(names[i]);
+	}
+	printf("------------------------------\n");
+	for (int i = 0; i < 5; i++) {
+		printf(" %d | %s | Count: %d\n", i + 1, names[i], lengths[i]);
+	}
+
+	for (int i = 0; i < 5; i++) {
+		if (lengths[i] > max_length) {
+			max_length = lengths[i];
+			max_index = i;
+		}
+	}
+	printf("Max name length: %s\n", names[max_index]);
+
+	return 0;
+}
+#endif
